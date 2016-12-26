@@ -200,7 +200,7 @@ def qrLogin():
 
 ### Local ###
 #run(app, host='localhost', port=8080, debug=True)
-run(app, server='eventlet', host='localhost', port=8080, debug=True)
+run(app, server='eventlet', host='localhost', port=8880, debug=True)
 
 ### SAE ###
 # debug(True)
