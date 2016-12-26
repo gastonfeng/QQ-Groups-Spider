@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*
 import os
 import sys
+
 app_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(app_root, 'lib'))
 from bottle import *
@@ -14,7 +15,8 @@ from io import BytesIO
 import pyexcel as pe
 import unicodecsv as csv
 import re
-#import sae
+
+# import sae
 
 
 app = Bottle()
@@ -165,7 +167,7 @@ class QQGroups(object):
                 worksheet.write(row, col + 4, gIntro)
                 row += 1
             workbook.close()
-            resp = static_file(filename, root=tempfile.gettempdir(),  download=filename,
+            resp = static_file(filename, root=tempfile.gettempdir(), download=filename,
                                mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
             return resp
 
@@ -198,10 +200,11 @@ def getQRCode():
 def qrLogin():
     return q.qrLogin()
 
+
 ### Local ###
-#run(app, host='localhost', port=8080, debug=True)
+# run(app, host='localhost', port=8080, debug=True)
 run(app, server='eventlet', host='localhost', port=8880, debug=True)
 
 ### SAE ###
 # debug(True)
-#application = sae.create_wsgi_app(app)
+# application = sae.create_wsgi_app(app)
